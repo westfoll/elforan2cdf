@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+*.cdf
+*.mdf
+*.txt
+!requirements*.txt
+.DS_Store
