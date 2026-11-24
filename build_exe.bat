@@ -1,5 +1,5 @@
 @echo off
-rem Build Elforan2CDF.exe (window) and elforan2cdf.exe (console).
+rem Build Elforan2CDF.exe (window) and elforan2cdf-cli.exe (console).
 rem Requires Python 3.8+ for Windows with tcl/tk. Full log: build.log
 setlocal
 cd /d "%~dp0"
@@ -23,9 +23,10 @@ rem give antivirus a moment, then check that the file survived
 timeout /t 3 /nobreak > nul
 if not exist dist\Elforan2CDF.exe goto :antivirus
 
-echo [4/4] Building elforan2cdf.exe (console)...
-python -m PyInstaller --onefile --console --noconfirm --name elforan2cdf elforan2cdf.py >> build.log 2>&1
+echo [4/4] Building elforan2cdf-cli.exe (console)...
+python -m PyInstaller --onefile --console --noconfirm --name elforan2cdf-cli elforan2cdf.py >> build.log 2>&1
 if errorlevel 1 goto :faillog
+if not exist dist\Elforan2CDF.exe goto :antivirus
 
 echo.
 echo Done:

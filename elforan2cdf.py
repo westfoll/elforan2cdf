@@ -19,7 +19,7 @@ Time — секунды, Signal — сигнал детектора, Current —
     elforan2cdf папка                          все *.mdf и *.txt в папке
     elforan2cdf --watch папка                  следить за папкой и конвертировать новые
     elforan2cdf --current файл.txt             дополнительно сохранить ток в *_current.cdf
-Можно просто перетащить файлы или папку на elforan2cdf.exe.
+Можно просто перетащить файлы или папку на elforan2cdf-cli.exe.
 """
 
 import argparse
