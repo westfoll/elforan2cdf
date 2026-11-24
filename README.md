@@ -56,6 +56,18 @@ OpenChrom, Chromeleon, ChemStation/OpenLab, Empower, MZmine, Clarity и др.
 Python там не нужен. Если антивирус ругается на свежесобранный exe —
 это типично для PyInstaller, добавьте его в исключения.
 
+### Если после сборки нет Elforan2CDF.exe (только консольная версия)
+
+`build_exe.bat` сам проверяет типичные причины и пишет, что делать; полный журнал — `build.log`.
+
+1. **Антивирус удалил файл** (самое частое). Windows Defender нередко считает свежие
+   оконные exe от PyInstaller вирусом и молча удаляет. «Безопасность Windows» →
+   «Защита от вирусов и угроз» → «Журнал защиты» → восстановить файл, или добавить
+   папку `elforan2cdf` в исключения и запустить `build_exe.bat` снова.
+2. **В Python нет tkinter.** «Параметры» → «Приложения» → Python → «Изменить» →
+   «Modify» → отметить «tcl/tk and IDLE». Проверка: `python -c "import tkinter"`.
+3. Окно можно запустить и без exe: `python elforan2cdf_gui.py`.
+
 ## Командная строка
 
 ```
