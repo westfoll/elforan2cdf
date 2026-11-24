@@ -45,8 +45,9 @@ OpenChrom, Chromeleon, ChemStation/OpenLab, Empower, MZmine, Clarity и др.
 
 ## Сборка .exe (на Windows-ПК)
 
-1. Установить Python 3.8 или новее с https://www.python.org/downloads/windows/
-   (при установке отметить «Add Python to PATH»). Для Windows 7 нужен именно 3.8.
+1. Установить **Python 3.8.10, 32-bit** — https://www.python.org/downloads/release/python-3810/
+   → «Windows installer (32-bit)», при установке отметить «Add Python to PATH».
+   Можно ставить рядом с более новым Python — `build_exe.bat` сам выберет 3.8.
 2. Скопировать папку `elforan2cdf` на этот ПК и дважды щёлкнуть `build_exe.bat`.
 3. В папке `dist` появятся:
    - `Elforan2CDF.exe` — программа с окном;
@@ -55,6 +56,18 @@ OpenChrom, Chromeleon, ChemStation/OpenLab, Empower, MZmine, Clarity и др.
 Готовые exe самодостаточны: их можно копировать на компьютер с прибором,
 Python там не нужен. Если антивирус ругается на свежесобранный exe —
 это типично для PyInstaller, добавьте его в исключения.
+
+### Windows 7
+
+- exe для Windows 7 **обязательно собирать Python 3.8** (это последняя версия Python
+  с поддержкой Windows 7). Собранный Python 3.9+ exe на Windows 7 падает с ошибкой
+  `api-ms-win-core-path-l1-1-0.dll`. В конце сборки `build_exe.bat` пишет, совместим ли
+  результат с Windows 7.
+- 32-битный Python даёт 32-битный exe, который работает и на 32-, и на 64-битной Windows.
+  64-битный exe на 32-битной Windows 7 не запустится.
+- Нужна Windows 7 **SP1**. Если на ней exe жалуется на `api-ms-win-crt-runtime-l1-1-0.dll`,
+  установите обновление **KB2999226** (Universal C Runtime) с сайта Microsoft.
+- Собирать можно на любой Windows (10/11 тоже) — важна версия Python, а не система.
 
 ### Если после сборки нет Elforan2CDF.exe (только консольная версия)
 
